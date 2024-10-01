@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player</title>
+    <style>
+        /* CSS untuk membuat video responsif */
+        video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Define a video with sources to attach Fluid Player to -->
+    <video id="example-player" controls>
+        <source data-fluid-hd src='https://rr5---sn-npoldn7l.googlevideo.com/videoplayback?expire=1727808713&ei=SdT7ZtTWDJaF2OMP9Nvq0Q0&ip=2a04:3543:1000:2310:30da:13ff:fead:6be6&id=a8494633ec68ccca&itag=22&source=blogger&xpc=Egho7Zf3LnoBAQ%3D%3D&mh=KO&mm=31&mn=sn-npoldn7l&ms=au&mv=m&mvi=5&pl=32&susc=bl&eaua=fgx_9ngfNmc&mime=video/mp4&vprv=1&rqh=1&dur=1420.434&lmt=1680665451908062&mt=1727779781&txp=1311224&sparams=expire,ei,ip,id,itag,source,xpc,susc,eaua,mime,vprv,rqh,dur,lmt&sig=AJfQdSswRgIhAMzmPdus_LR1xqnc4C3V_67zeg_xjuyZcq-4TTx5U1E7AiEA_shLVzrzJMPpyBQonA9EEmyOu7K7u92eOJZ8Ea9AlOw%3D&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=ABPmVW0wRQIgODSyOaU32HMONMEAukKmZwk9Pzcr8cMCfV2wi42u47sCIQD7ZEs_g9HuLwqGSradowIYsRBPEk8Li62Q8U00Zze0iA%3D%3D' title='720p' type='video/mp4' />
+        <source src='https://rr5---sn-npoldne7.googlevideo.com/videoplayback?expire=1727808663&ei=F9T7ZtWmJ7D5sfIPob3esQs&ip=2a04:3543:1000:2310:30da:13ff:fead:6be6&id=050546e681a01f57&itag=18&source=blogger&xpc=Egho7Zf3LnoBAQ%3D%3D&mh=3O&mm=31&mn=sn-npoldne7&ms=au&mv=m&mvi=5&pl=32&susc=bl&eaua=fgx_9ngfNmc&mime=video/mp4&vprv=1&rqh=1&dur=1420.248&lmt=1680664378827031&mt=1727779313&txp=1311224&sparams=expire,ei,ip,id,itag,source,xpc,susc,eaua,mime,vprv,rqh,dur,lmt&sig=AJfQdSswRQIhAMHp0J930c_XhxmMF6MalUSRRpN6n_-QJgsqVyHAwKeAAiBP0fWUWUoPdoAcfeSIs1-oYvhCeKJi6i62jxmzyu4drw%3D%3D&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=ABPmVW0wRgIhANZCr_7M2IIEAuCw3OAXiWWU9Cwd94-FmpUxud401FvfAiEApzKs1_H_B4snBHOcA3yvFGNW7Nf0P6ZuC6_uoNnvWzI%3D' title='480p' type='video/mp4' />
+        <source src='https://rr1---sn-npoe7ndl.googlevideo.com/videoplayback?expire=1727806101&ei=Fcr7ZqiLBZH4sfIP3s6zwAE&ip=2a04:3543:1000:2310:30da:13ff:fead:6be6&id=050546e681a01f57&itag=18&source=blogger&xpc=Egho7Zf3LnoBAQ%3D%3D&mh=3O&mm=31&mn=sn-npoe7ndl&ms=au&mv=m&mvi=1&pl=32&susc=bl&eaua=fgx_9ngfNmc&mime=video/mp4&vprv=1&rqh=1&dur=1420.248&lmt=1680664378827031&mt=1727776882&txp=1311224&sparams=expire,ei,ip,id,itag,source,xpc,susc,eaua,mime,vprv,rqh,dur,lmt&sig=AJfQdSswRAIgLwRrWRjWgCq7Dw8bIqffT6w8iCHmI0qrvc7m4V9wvxACIAWOKK4g_HetuuY3kTFpzKPzjU5If3IGjiWBueYc3phu&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=ABPmVW0wRgIhANi_v3opiw8ZfkylI3BDfi6icn6u12x1yv1VoawZAUXuAiEA1bBAzIE5NmskX4syTLGdJORspDB-zgjmC0IclLuJcQM%3D' title='360p' type='video/mp4' />
+    </video>
+
+    <!-- Place before </body> tag -->
+    <script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
+    <script type="text/javascript">
+    var player = fluidPlayer(
+       'example-player',
+        {
+            layoutControls: {
+                // Parameters to customise the look and feel of the player
+            },
+            vastOptions: {
+                // Parameters to customise how the ads are displayed & behave
+            }
+        }
+    );
+    </script>
+</body>
+
+</html>
