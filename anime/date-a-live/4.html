@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date A Live Episode 04 Sub Indo</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #my-video {
+            width: 100%;
+            height: 100vh;
+            object-fit: contain;
+        }
+
+        .fp_hd_source {
+            color: yellow !important;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
+    <video id='my-video' controls>
+        <source data-fluid-hd
+            src='https://server7.miterequest.my.id/public/1683/alqanime_dalives1_bd_04_1080p.mp4'
+            title='1080p' type='video/mp4' />
+        <source data-fluid-hd
+            src='https://server7.miterequest.my.id/public/1683/alqanime_dalives1_bd_04_720p.mp4'
+            title='720p' type='video/mp4' />
+        <source
+            src='https://server7.miterequest.my.id/public/1683/alqanime_dalives1_bd_04_480p.mp4'
+            title='480p' type='video/mp4' />
+            <track label="Indonesia" kind="metadata" srclang="id" src="sub.vtt" default>
+    </video>
+
+    <script type="text/javascript">
+        var player = fluidPlayer(
+            'my-video',
+            {
+                layoutControls: {
+                    fillToContainer: true
+                },
+                vastOptions: {
+                    // Parameters to customise how the ads are displayed & behave
+                },
+                layoutControls: {
+                    subtitlesEnabled: true
+                }
+            }
+        );
+    </script>
+</body>
+
+</html>
