@@ -23,9 +23,25 @@
 
 <script src="https://unpkg.com/artplayer@5.0.8/dist/artplayer.js"></script>
 <script>
-    var art = new Artplayer({
+    const qualityList = [
+        {
+            html: 'SD 480P',
+            url: 'https://www.googleapis.com/drive/v3/files/1WL1K_kKgXInzn_ipdfKP1ZmqI_86p3Y8?alt=media&key=AIzaSyBNjJPuhjY4wQRNx4g2SSKw5Pq2CWcQnVE',
+        },
+        {
+	    default: true,
+            html: 'HD 720P',
+            url: 'https://www.googleapis.com/drive/v3/files/1TM4K8TIiHMC2_g-9aACe8wkhzLIO9ipz?alt=media&key=AIzaSyBNjJPuhjY4wQRNx4g2SSKw5Pq2CWcQnVE',
+        },
+        {
+            html: 'Full HD 1080P',
+            url: 'https://www.googleapis.com/drive/v3/files/1kG3QpovkxI-U3Bq9L1UkLNlneZpkfoBp?alt=media&key=AIzaSyBNjJPuhjY4wQRNx4g2SSKw5Pq2CWcQnVE',
+        },
+    ];
+
+    const art = new Artplayer({
         container: '.artplayer-app',
-        url: 'https://www.googleapis.com/drive/v3/files/1WL1K_kKgXInzn_ipdfKP1ZmqI_86p3Y8?alt=media&key=AIzaSyBNjJPuhjY4wQRNx4g2SSKw5Pq2CWcQnVE',
+        url: qualityList.find(q => q.default).url,
         poster: 'https://cdn.aceimg.com/6c85638e9.png',
         volume: 0.5,
         isLive: false,
@@ -54,19 +70,18 @@
         moreVideoAttr: {
             crossOrigin: 'anonymous',
         },
-        quality: [
+        settings: [
             {
-                default: true,
-                html: 'SD 480P',
-                url: 'https://www.googleapis.com/drive/v3/files/1WL1K_kKgXInzn_ipdfKP1ZmqI_86p3Y8?alt=media&key=AIzaSyBNjJPuhjY4wQRNx4g2SSKw5Pq2CWcQnVE',
-            },
-            {
-                html: 'HD 720P',
-                url: 'https://www.googleapis.com/drive/v3/files/1TM4K8TIiHMC2_g-9aACe8wkhzLIO9ipz?alt=media&key=AIzaSyBNjJPuhjY4wQRNx4g2SSKw5Pq2CWcQnVE',
-            },
-            {
-                html: 'Full HD 1080P',
-                url: 'https://www.googleapis.com/drive/v3/files/1kG3QpovkxI-U3Bq9L1UkLNlneZpkfoBp?alt=media&key=AIzaSyBNjJPuhjY4wQRNx4g2SSKw5Pq2CWcQnVE',
+                html: 'Quality',
+                tooltip: qualityList.find(q => q.default).html,
+                selector: qualityList.map(q => ({
+                    html: q.html,
+                    url: q.url,
+                })),
+                onSelect(item) {
+                    art.switchUrl(item.url, false);
+                    return item.html;
+                },
             },
         ],
         icons: {
