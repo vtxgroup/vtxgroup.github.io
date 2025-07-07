@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Full Video with Multi Subtitle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/artplayer@5.0.8/dist/artplayer.css" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+    }
+    .artplayer-app {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="artplayer-app"></div>
+
+  <script src="https://unpkg.com/artplayer@5.0.8/dist/artplayer.js"></script>
+  <script>
+    const qualities = [
+      {
+        html: '1080p',
+        url: 'https://www.googleapis.com/drive/v3/files/1dVQNJm6--qOrOHVa3PR6Phbw5Gxk5qX9?alt=media&key=AIzaSyCIMdfn92n50KtLnabYt7X2PU-ocRTEugE',
+        default: true,
+      },
+      {
+        html: '720p',
+        url: 'https://www.googleapis.com/drive/v3/files/1Tjog9GK4NEbNobIyZ8cawgtmeRr2ZEJI?alt=media&key=AIzaSyCIMdfn92n50KtLnabYt7X2PU-ocRTEugE',
+      },
+      {
+        html: '480p',
+        url: 'https://www.googleapis.com/drive/v3/files/1pBB7DZQXUneqgN7zANiTQD6_ixKV303v?alt=media&key=AIzaSyCIMdfn92n50KtLnabYt7X2PU-ocRTEugE',
+      },
+    ];
+
+    const subtitles = [
+      {
+        html: 'English',
+        url: 'https://www.googleapis.com/drive/v3/files/1NGe7eyTksV8Juo40EyajV2-imsCcGrXL?alt=media&key=AIzaSyCIMdfn92n50KtLnabYt7X2PU-ocRTEugE',
+      },
+      {
+        html: 'Indonesian',
+        url: 'https://www.googleapis.com/drive/v3/files/1eQPtJNeOACw_PME1E6Ry9DeZoCQ8gna1?alt=media&key=AIzaSyCIMdfn92n50KtLnabYt7X2PU-ocRTEugE',
+        default: true,
+      },
+      {
+        html: 'Traditional Chinese',
+        url: 'https://www.googleapis.com/drive/v3/files/14snc6FaeSAZgz4DA2Kdrf0pDDkTBsKn1?alt=media&key=AIzaSyCIMdfn92n50KtLnabYt7X2PU-ocRTEugE',
+      },
+      {
+        html: 'Simplified Chinese',
+        url: 'https://www.googleapis.com/drive/v3/files/1y_JlGuKbN4T6T7389WA7XF8VXduisUgx?alt=media&key=AIzaSyCIMdfn92n50KtLnabYt7X2PU-ocRTEugE',
+      },
+      {
+        html: 'Thai',
+        url: 'https://www.googleapis.com/drive/v3/files/1VSKuunhnn1uLuIDgD6fWi8S7tMGty7bd?alt=media&key=AIzaSyCIMdfn92n50KtLnabYt7X2PU-ocRTEugE',
+      },
+      {
+        html: 'Malay',
+        url: 'https://www.googleapis.com/drive/v3/files/1kZcSM7JQ9Qg4efg-vZ76-62ZvYDzmB3h?alt=media&key=AIzaSyCIMdfn92n50KtLnabYt7X2PU-ocRTEugE',
+      },
+    ];
+
+    const defaultSubtitle = subtitles.find((s) => s.default);
+    const defaultQuality = qualities.find((q) => q.default);
+
+    const art = new Artplayer({
+      container: '.artplayer-app',
+      url: defaultQuality.url,
+      autoSize: true,
+      fullscreen: true,
+      setting: true,
+      playbackRate: true,
+      aspectRatio: true,
+      screenshot: true,
+      airplay: true,
+      fullscreenWeb: true,
+      subtitleOffset: true,
+      miniProgressBar: true,
+      mutex: true,
+      theme: '#23ade5',
+      subtitle: {
+        url: defaultSubtitle.url,
+        type: 'srt',
+        style: {
+          color: '#ffcc00',
+          fontSize: '20px',
+        },
+        encoding: 'utf-8',
+      },
+      moreVideoAttr: {
+        crossOrigin: 'anonymous',
+      },
+      settings: [
+        {
+          html: 'Quality',
+          selector: qualities,
+          onSelect: function (item) {
+            art.switchUrl(item.url, true);
+            return item.html;
+          },
+        },
+        {
+          html: 'Subtitle',
+          selector: subtitles,
+          onSelect: function (item) {
+            art.subtitle.switch(item.url, { type: 'srt' });
+            return item.html;
+          },
+        },
+      ],
+    });
+  </script>
+</body>
+</html>
