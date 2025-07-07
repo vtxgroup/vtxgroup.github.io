@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SPY×FAMILY CODE: White (Dub Indo)</title>
+    <link rel="stylesheet" href="https://unpkg.com/artplayer@5.0.8/dist/artplayer.css" />
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: #000;
+        }
+        .artplayer-app {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+<div class="artplayer-app"></div>
+
+<script src="https://unpkg.com/artplayer@5.0.8/dist/artplayer.js"></script>
+<script>
+    var art = new Artplayer({
+        container: '.artplayer-app',
+        url: 'https://www.googleapis.com/drive/v3/files/1WL1K_kKgXInzn_ipdfKP1ZmqI_86p3Y8?alt=media&key=AIzaSyBNjJPuhjY4wQRNx4g2SSKw5Pq2CWcQnVE',
+        poster: 'https://cdn.aceimg.com/6c85638e9.png',
+        volume: 0.5,
+        isLive: false,
+        muted: false,
+        autoplay: false,
+        pip: true,
+        autoSize: true,
+        autoMini: true,
+        screenshot: true,
+        setting: true,
+        loop: true,
+        flip: true,
+        playbackRate: true,
+        aspectRatio: true,
+        fullscreen: true,
+        fullscreenWeb: true,
+        subtitleOffset: false,
+        miniProgressBar: true,
+        mutex: true,
+        backdrop: true,
+        playsInline: true,
+        autoPlayback: true,
+        airplay: true,
+        theme: '#23ade5',
+        lang: navigator.language.toLowerCase(),
+        moreVideoAttr: {
+            crossOrigin: 'anonymous',
+        },
+        quality: [
+            {
+                default: true,
+                html: 'SD 480P',
+                url: 'https://www.googleapis.com/drive/v3/files/1WL1K_kKgXInzn_ipdfKP1ZmqI_86p3Y8?alt=media&key=AIzaSyBNjJPuhjY4wQRNx4g2SSKw5Pq2CWcQnVE',
+            },
+            {
+                html: 'HD 720P',
+                url: 'https://www.googleapis.com/drive/v3/files/1TM4K8TIiHMC2_g-9aACe8wkhzLIO9ipz?alt=media&key=AIzaSyBNjJPuhjY4wQRNx4g2SSKw5Pq2CWcQnVE',
+            },
+            {
+                html: 'Full HD 1080P',
+                url: 'https://www.googleapis.com/drive/v3/files/1kG3QpovkxI-U3Bq9L1UkLNlneZpkfoBp?alt=media&key=AIzaSyBNjJPuhjY4wQRNx4g2SSKw5Pq2CWcQnVE',
+            },
+        ],
+        icons: {
+            loading: '<img src="https://cdn.aceimg.com/fe2400f1c.gif">',
+            state: '<img width="150" height="150" src="https://vtxgroup.my.id/img/state.svg">',
+            indicator: '<img width="16" height="16" src="https://vtxgroup.my.id/img/indicator.svg">',
+        },
+    });
+</script>
+
+</body>
+</html>
